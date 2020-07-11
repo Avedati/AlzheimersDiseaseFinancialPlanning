@@ -1,0 +1,111 @@
+<!-- sources: -->
+<!-- https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf -->
+<!-- https://www.medicaid.gov -->
+<!-- https://www.ssa.gov/ssi/text-understanding-ssi.htm -->
+<!-- TODO: add support for single people -->
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>Alzheimer's Disease Financial Planning</title>
+		<link rel='stylesheet' href='style.css' type='text/css' />
+		<script type='text/javascript' src='main.js'></script>
+	</head>
+	<body>
+		<div class='screen active' id='questions'>
+			<ul id='questionnaire'>
+				<li id='questionnaire-intro'>
+					<h2>Welcome to the Alzheimer's Disease Financial Planning Website Prototype!</h2>
+					<p>You will input some information about yourself and get some financial advice. (Disclaimer: This site is currently only tailored towards couples. Updates will be coming soon to support single individuals with Alzheimer's Disease!</p>
+				</li>
+				<li>
+					<h2>How old is your Alzheimer's patient (in years)?</h2>
+					<textarea id='patient-age' placeholder='65'></textarea>
+				</li>
+				<li>
+					<h2>Select the choice that best describes your Alzheimer's patient's status.</h2>
+					<ul class='checkboxes'>
+						<li>
+							<input id='their-status-1' type='radio' name='status' />
+							<label>United States citizen living in one of the 50 states, the District of Columbia, or the Northern Mariana Islands.</label>
+						</li>
+						<li>
+							<input id='their-status-2' type='radio' name='status' />
+							<label>United States citizen living elsewhere.</label>
+						</li>
+						<li>
+							<input id='their-status-3' type='radio' name='status' />
+							<label>Non U.S. citizen living in one of the 50 states, the District of Columbia, or the Northern Mariana Islands.</label>
+						</li>
+						<li>
+							<input id='their-status-4' type='radio' name='status' />
+							<label>Non U.S. citizen living elsewhere.</label>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>Has your Alzheimer's patient been absent from the United States for 30 or more consecutive days or for a full calendar month?</h2>
+					<ul class='checkboxes'>
+						<li>
+							<input id='their-absence-yes' type='radio' name='absence' />
+							<label>Yes</label>
+						</li>
+						<li>
+							<input id='their-absence-no' type='radio' name='absence' />
+							<label>No</label>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>Is your Alzheimer's patient / will they be confined to an institution (ex. hospital or prison) at the government's expense?</h2>
+					<ul class='checkboxes'>
+						<li>
+							<input id='their-confinement-yes' type='radio' name='confinement' />
+							<label>Yes</label>
+						</li>
+						<li>
+							<input id='their-confinement-no' type='radio' name='confinement' />
+							<label>No</label>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>What is your annual income (in USD)?</h2>
+					<textarea id='your-income' placeholder='0'></textarea>
+				</li>
+				<li>
+					<h2>What is the estimated total value of all of your assets in USD (cash, stocks, bonds, property, vehicles, anything else that can be converted to cash and used for food and/or shelter)?</h2>
+					<textarea id='assets' placeholder='0'></textarea>
+				</li>
+				<li>
+					<h2>What are your estimated annual expenditures due to Alzheimer's Disease?</h2>
+					<textarea id='expenditures' placeholder='0'></textarea>
+				</li>
+			</ul>
+			<button id='next'>Next</button>
+		</div>
+		<div class='screen' id='results'>
+			<h2 id='results-title'>Financial Information</h2>
+			<p id='results-description'>The estimated annual cost of Alzheimer's Disease for your family is {1}. You {2} eligible for Medicaid, and for more information on what expenses Medicaid will cover and eligibility in general, you should visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a>. You {3} eligible for Medicare, and for more information on what expenses Medicare will cover, you should visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a>. {4} {5} be paid for by SSI annually. {6}</p>
+			<button id='learn-more'>Learn more</button>
+			<h2 id='results-options-title'>Options</h2>
+			<ul>
+				<li>
+					<h3>Apply for Medicaid</h3>
+					<p>Visit <a target='_blank' href='https://www.medicaid.gov/medicaid/index.html'>this link</a> to learn how to apply for Medicaid.</p>
+				</li>
+				<li>
+					<h3>Apply for Medicare</h3>
+					<p>Visit <a target='_blank' href='https://www.medicare.gov/sign-up-change-plans/get-started-with-medicare'>this link</a> to learn how to apply for Medicare.</p>
+				</li>
+				<!-- TODO: add more options -->
+			</ul>
+			<button id='back'>Back</button>
+		</div>
+		<div class='screen' id='moreinfo'>
+			<h2 id='info-title'>How your results are calculated.</h2>
+			<p id='info-description'>Your eligibility is confirmed using the rules outlined by the official Medicaid, Medicare, and SSI websites. Your SSI benefits are calculated by subtracting your combined income from the maximum yield of $14100.<br/><br/>Sources:<br/><a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>2020 Medicare Costs</a><br/><a target='_blank' href='https://www.medicaid.gov'>Medicaid</a><br/><a target='_blank' href='https://www.ssa.gov/ssi/text-understanding-ssi.htm'>Understanding Supplemental Security Income SSI Home Page -- 2020 Edition</a></p>
+			<button id='back-to-results'>Back</button>
+		</div>
+	</body>
+</html>
