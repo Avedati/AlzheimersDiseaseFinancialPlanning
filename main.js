@@ -70,7 +70,7 @@ window.onload = function() {
 		document.documentElement.scrollTop = 0;
 	};
 
-	document.getElementById('back').onclick = function() {
+	/*document.getElementById('back').onclick = function() {
 		document.getElementById('questions').classList.add('active');
 		document.getElementById('results').classList.remove('active');
 	};
@@ -83,5 +83,21 @@ window.onload = function() {
 	document.getElementById('back-to-results').onclick = function() {
 		document.getElementById('moreinfo').classList.remove('active');
 		document.getElementById('results').classList.add('active');
+	};*/
+
+	document.getElementById('prev').onclick = function() {
+		var lis = [...document.getElementById('questionnaire').children];
+		var active = [...document.getElementsByClassName('active')][0]
+		var idx = lis.indexOf(active);
+		active.classList.remove('active');
+		lis[Math.max(0, idx - 1)].classList.add('active');
+	};
+
+	document.getElementById('next').onclick = function() {
+		var lis = [...document.getElementById('questionnaire').children];
+		var active = [...document.getElementsByClassName('active')][0]
+		var idx = lis.indexOf(active);
+		active.classList.remove('active');
+		lis[Math.min(lis.length - 1, idx + 1)].classList.add('active');
 	};
 };
