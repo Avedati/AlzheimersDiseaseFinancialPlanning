@@ -1,10 +1,10 @@
 window.onload = function() {
 	function replaceTemplateOccurence(index, value) {
-		document.getElementById('results-description').innerHTML = document.getElementById('results-description').innerHTML.replace('{' + index.toString() + '}', value);
+		document.getElementById('template' + index).innerHTML = value;
 	}
 
-	document.getElementById('next').onclick = function() {
-		document.getElementById('results-description').innerHTML = "The estimated annual cost of Alzheimer's Disease for your family is {1}. You {2} eligible for Medicaid, and for more information on what expenses Medicaid will cover and eligibility in general, you should visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a>. You {3} eligible for Medicare, and for more information on what expenses Medicare will cover, you should visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a>. {4} {5} be paid for by SSI annually. {6}";
+	function updateResults() {
+		//document.getElementById('results-description').innerHTML = "The estimated annual cost of Alzheimer's Disease for your family is {1}. You {2} eligible for Medicaid, and for more information on what expenses Medicaid will cover and eligibility in general, you should visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a>. You {3} eligible for Medicare, and for more information on what expenses Medicare will cover, you should visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a>. {4} {5} be paid for by SSI annually. {6}";
 
 		var flag = false;
 
@@ -41,7 +41,7 @@ window.onload = function() {
 		net_cost = Math.max(parseFloat(document.getElementById('expenditures').value || 0) - annualSSIBenefits, 0);
 		replaceTemplateOccurence(1, '$' + net_cost.toString());
 		if(annualSSIBenefits > 0) { // medicaid
-			replaceTemplateOccurence(2, 'are');
+			replaceTemplateOccurence(2, 'Yes');
 			replaceTemplateOccurence(4, '$' + annualSSIBenefits.toString());
 			if(!flag) {
 				replaceTemplateOccurence(5, "will");
@@ -49,7 +49,7 @@ window.onload = function() {
 			}
 		}
 		else {
-			replaceTemplateOccurence(2, 'may be');
+			replaceTemplateOccurence(2, 'Maybe');
 			replaceTemplateOccurence(4, '$0');
 			if(!flag) {
 				replaceTemplateOccurence(5, "will");
@@ -58,16 +58,11 @@ window.onload = function() {
 		}
 
 		if(parseInt(document.getElementById('patient-age')) >= 65) { // medicare
-			replaceTemplateOccurence(3, 'are');
+			replaceTemplateOccurence(3, 'Yes');
 		}
 		else {
-			replaceTemplateOccurence(3, 'are');
+			replaceTemplateOccurence(3, 'No');
 		}
-		document.getElementById('questions').classList.remove('active');
-		document.getElementById('results').classList.add('active');
-		//https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
 	};
 
 	/*document.getElementById('back').onclick = function() {
@@ -94,6 +89,10 @@ window.onload = function() {
 	};
 
 	document.getElementById('next').onclick = function() {
+		if(document.getElementById('last').classList.contains('active')) {
+			updateResults();
+		}
+
 		var lis = [...document.getElementById('questionnaire').children];
 		var active = [...document.getElementsByClassName('active')][0]
 		var idx = lis.indexOf(active);

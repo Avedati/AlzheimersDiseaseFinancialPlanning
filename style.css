@@ -100,6 +100,48 @@ ul#options p {
 	font-size:12pt;
 }
 
+ul#results {
+	list-style-type:none;
+	padding:0;
+	height:20%;
+}
+
+ul#results li {
+	float:left;
+	width:100%;
+	height:25%;
+}
+
+ul#results li h3 {
+	float:left;
+	width:10%;
+	height:100%;
+	color:#3333cc;
+}
+
+ul#results li p {
+	float:left;
+	width:90%;
+	height:100%;
+}
+
+ul#results li p#last-result {
+	width:70%;
+}
+
+ul#results li p#template5 {
+	width:3%;
+}
+
 @media only screen and (max-width: 600px) {
-	
+	ul#results li p {
+		font-size:8pt;
+	}
+
+	ul#results li h3 {
+		font-size:9pt;
+	}
+
+	button#prev { font-size:9pt; }
+	button#next { font-size:9pt; }
 }

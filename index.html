@@ -78,13 +78,33 @@
 				<h2>What is the estimated total value of all of your assets in USD (cash, stocks, bonds, property, vehicles, anything else that can be converted to cash and used for food and/or shelter)?</h2>
 				<textarea id='assets' placeholder='0'></textarea>
 			</li>
-			<li>
+			<li id='last'>
 				<h2>What are your estimated annual expenditures due to Alzheimer's Disease?</h2>
 				<textarea id='expenditures' placeholder='0'></textarea>
 			</li>
 			<li>
 				<h2 id='results-title'>Financial Information</h2>
-				<p id='results-description'>The estimated annual cost of Alzheimer's Disease for your family is {1}. You {2} eligible for Medicaid, and for more information on what expenses Medicaid will cover and eligibility in general, you should visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a>. You {3} eligible for Medicare, and for more information on what expenses Medicare will cover, you should visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a>. {4} {5} be paid for by SSI annually. {6}</p>
+				<ul id='results'>
+					<li>
+						<h3 id='template1'></h3>
+						<p>is the estimated annual cost of Alzheimer's Disease for your family.</p>
+					</li>
+					<li>
+						<h3 id='template2'></h3>
+						<p>Your eligibility for Medicaid. Visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a> for more information.</p>
+					</li>
+					<li>
+						<h3 id='template3'></h3>
+						<p>Your eligibility for Medicare. Visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a> for more information.</p>
+					</li>
+					<li>
+						<h3 id='template4'></h3>
+						<p id='template5'></p>
+						<p id='last-result'>be paid for by SSI annually.</p>
+						<h3 id='template6'></h3>
+					</li>
+				</ul>
+				<!--p id='results-description'>The estimated annual cost of Alzheimer's Disease for your family is {1}. You {2} eligible for Medicaid, and for more information on what expenses Medicaid will cover and eligibility in general, you should visit <a target='_blank' href='https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/'>this link</a>. You {3} eligible for Medicare, and for more information on what expenses Medicare will cover, you should visit <a target='_blank' href='https://www.medicare.gov/Pubs/pdf/11579-medicare-costs.pdf'>this link</a>. {4} {5} be paid for by SSI annually. {6}</p-->
 				<h2 id='results-options-title'>Options</h2>
 				<ul id='options'>
 					<li>
